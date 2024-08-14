@@ -53,14 +53,14 @@ function loadUserData() {
 
         row.innerHTML = `
             <td>${user.firstName}</td>
-            <td>${user.middleName || ''}</td>
-            <td>${user.lastName || ''}</td>
+            <td>${user.middleName ?? ''}</td>
+            <td>${user.lastName ?? ''}</td>
             <td>${user.email}</td>
-            <td>${user.phoneNumber || ''}</td>
+            <td>${user.phoneNumber ?? ''}</td>
             <td>${user.role}</td>
-            <td>${user.address || ''}</td>
-            <td>${user.createdOn || ''}</td>
-            <td>${user.modifiedOn || ''}</td>
+            <td>${user.address ?? ''}</td>
+            <td>${user.createdOn ?? ''}</td>
+            <td>${user.modifiedOn ?? ''}</td>
             <td>
                 <button onclick="editRow(${index})">Edit</button>
                 <button onclick="deleteRow(${index})">Delete</button>
@@ -158,7 +158,7 @@ loadButton.addEventListener('click', () => {
     }
 });
 
-window.editRow = editRow;
-window.saveRow = saveRow;
-window.cancelEdit = cancelEdit;
-window.deleteRow = deleteRow;
+(window as any).editRow = editRow;
+(window as any).saveRow = saveRow;
+(window as any).cancelEdit = cancelEdit;
+(window as any).deleteRow = deleteRow;
